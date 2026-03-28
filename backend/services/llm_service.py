@@ -7,11 +7,13 @@ from backend.models.schemas import SymptomAnalysis, Condition
 
 load_dotenv()
 
-# ── Logging ───────────────────────────────────────────────────────────────────
+
+# Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# ── Client Setup ──────────────────────────────────────────────────────────────
+
+# Client Setup
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 if not GROQ_API_KEY:
@@ -24,7 +26,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-# ── System Prompt ─────────────────────────────────────────────────────────────
+# System Prompt
 SYSTEM_PROMPT = """
 You are a medical information assistant providing educational health information only.
 You are NOT a doctor and do NOT provide medical diagnoses or professional medical advice.
@@ -70,7 +72,7 @@ RULES YOU MUST FOLLOW:
 """
 
 
-# ── Core Function ─────────────────────────────────────────────────────────────
+# Core Function
 
 def analyze_symptoms(symptoms: str) -> SymptomAnalysis:
     """
@@ -118,7 +120,7 @@ def analyze_symptoms(symptoms: str) -> SymptomAnalysis:
         logger.error(f"Groq API call failed: {e}")
         raise RuntimeError(f"Failed to reach the AI service. Please try again. Detail: {str(e)}")
 
-    # ── Parse & Validate JSON Response ────────────────────────────────────────
+    # Parse & Validate JSON Response
     try:
         # Strip markdown fences if model accidentally adds them
         if raw_content.startswith("```"):
@@ -133,7 +135,7 @@ def analyze_symptoms(symptoms: str) -> SymptomAnalysis:
         logger.error(f"Failed to parse LLM response as JSON: {e}\nRaw: {raw_content}")
         raise ValueError("The AI returned an unexpected response format. Please try again.")
 
-    # ── Build & Return Pydantic Model ─────────────────────────────────────────
+    # Build & Return Pydantic Model
     try:
         raw_conditions = parsed.get("conditions", [])
 
