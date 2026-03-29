@@ -199,3 +199,11 @@ Disclaimers are enforced at **three independent levels**:
 - [x] Auto-generated API docs (`/docs`)
 - [x] Responsive frontend with no dependencies
 - [x] Error handling at every layer
+
+---
+
+## 📞 Contact
+
+**Project Maintainer**: Abdul Hadi
+- Email: abdulhadizeeshan79@gmail.com
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-hadi-070727259/)
