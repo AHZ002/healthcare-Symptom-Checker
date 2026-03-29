@@ -1,4 +1,4 @@
-/* ── Reset & Base ─────────────────────────────────────────────── */
+/* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -30,7 +30,7 @@ body {
   flex-direction: column;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
+/* Header */
 header {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -62,7 +62,7 @@ header {
   color: var(--text-muted);
 }
 
-/* ── Disclaimer Banner ────────────────────────────────────────── */
+/* Disclaimer Banner */
 .disclaimer-banner {
   background: var(--warning-light);
   border-bottom: 1px solid #fcd34d;
@@ -72,7 +72,7 @@ header {
   font-size: 0.85rem;
 }
 
-/* ── Main Layout ──────────────────────────────────────────────── */
+/* Main Layout */
 main {
   flex: 1;
   padding: 2rem;
@@ -88,7 +88,7 @@ main {
   align-items: start;
 }
 
-/* ── Panels ───────────────────────────────────────────────────── */
+/* Panels */
 .panel {
   background: var(--white);
   border-radius: var(--radius);
@@ -110,7 +110,7 @@ main {
   margin-bottom: 1.25rem;
 }
 
-/* ── Textarea ─────────────────────────────────────────────────── */
+/* Textarea */
 textarea {
   width: 100%;
   min-height: 180px;

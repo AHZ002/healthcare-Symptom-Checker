@@ -1,6 +1,6 @@
 const API_BASE = "http://127.0.0.1:8000/api/v1";
 
-// ── Character Counter ──────────────────────────────────────────
+// Character Counter
 const symptomsInput = document.getElementById("symptomsInput");
 const charCount     = document.getElementById("charCount");
 const minWarning    = document.getElementById("minWarning");
@@ -11,7 +11,7 @@ symptomsInput.addEventListener("input", () => {
   minWarning.classList.toggle("hidden", len === 0 || len >= 10);
 });
 
-// ── UI State Helpers ───────────────────────────────────────────
+// UI State Helpers 
 function setLoading(isLoading) {
   const btn     = document.getElementById("analyzeBtn");
   const btnText = document.getElementById("btnText");
@@ -38,7 +38,7 @@ function clearError() {
   el.classList.add("hidden");
 }
 
-// ── Urgency Config ─────────────────────────────────────────────
+// Urgency Config
 const URGENCY_CONFIG = {
   Emergency: { icon: "🚨", cls: "urgency-emergency" },
   High:      { icon: "⚠️",  cls: "urgency-high"      },
@@ -46,7 +46,7 @@ const URGENCY_CONFIG = {
   Low:       { icon: "✅", cls: "urgency-low"        },
 };
 
-// ── Render Results ─────────────────────────────────────────────
+// Render Results 
 function renderResults(data) {
   // Urgency
   const urgency = URGENCY_CONFIG[data.urgency_level] || URGENCY_CONFIG["Moderate"];
@@ -83,7 +83,7 @@ function renderResults(data) {
   document.getElementById("resultsContent").classList.remove("hidden");
 }
 
-// ── Main: Analyze Symptoms ─────────────────────────────────────
+// Main: Analyze Symptoms
 async function analyzeSymptoms() {
   clearError();
   const symptoms = symptomsInput.value.trim();
@@ -135,7 +135,7 @@ async function analyzeSymptoms() {
   }
 }
 
-// ── History ────────────────────────────────────────────────────
+// History 
 async function loadHistory() {
   const historyList = document.getElementById("historyList");
   historyList.innerHTML = `<p class="history-empty">Loading...</p>`;
@@ -171,7 +171,7 @@ async function loadHistory() {
   }
 }
 
-// ── Load a Past History Item into Results Panel ────────────────
+// Load a Past History Item into Results Panel
 function loadHistoryItem(id) {
   const item = (window._historyData || []).find(q => q.id === id);
   if (!item) return;
@@ -184,7 +184,7 @@ function loadHistoryItem(id) {
   renderResults(item);
 }
 
-// ── Utilities ──────────────────────────────────────────────────
+// Utilities 
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.appendChild(document.createTextNode(String(str)));
@@ -199,7 +199,7 @@ function formatDate(iso) {
   }
 }
 
-// ── Allow Enter key on textarea (Ctrl+Enter to submit) ─────────
+// Allow Enter key on textarea (Ctrl+Enter to submit) 
 symptomsInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && e.ctrlKey) analyzeSymptoms();
 });
