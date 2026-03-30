@@ -12,7 +12,7 @@ and plain HTML/CSS/JS.
 
 ## 📸 Demo
 
-> 🎥 [Demo Video Link](#) — 
+> 🎥 [Live Demo](https://www.loom.com/share/c54d6dc3a5af4431b809f08d86bce973)
 
 ---
 
