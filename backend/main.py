@@ -58,3 +58,13 @@ app.include_router(router)
 @app.get("/health", tags=["Health"])
 async def health_check():
     return JSONResponse(content={"status": "ok", "service": "Healthcare Symptom Checker"})
+
+
+@app.get("/", tags=["Root"])
+async def root():
+    return JSONResponse(content={
+        "service": "Healthcare Symptom Checker API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "health": "/health"
+    })

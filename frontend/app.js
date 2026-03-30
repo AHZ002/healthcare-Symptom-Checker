@@ -84,7 +84,9 @@ function renderResults(data) {
 }
 
 // Main: Analyze Symptoms
-async function analyzeSymptoms() {
+async function analyzeSymptoms(event) {
+
+  if (event) event.preventDefault();
   clearError();
   const symptoms = symptomsInput.value.trim();
 
